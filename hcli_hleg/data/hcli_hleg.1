@@ -1,0 +1,29 @@
+.TH HCLI_HC 1 "SEPTEMBER 2023" Linux "User Manuals"
+.SH NAME
+hcli_hleg \- helps aggregate state legislature information for quick access and action (e.g online testiomy).
+.SH SYNOPSIS
+.B hcli_hleg
+[
+.I option
+|
+.I <command>
+]
+.SH DESCRIPTION
+.B hcli_hleg
+is a pypi wrapper that contains an HCLI sample application (hleg); hleg is a legislature bill aggregation service that helps facilitate rapid action by providing a useful list of bills on a timeline alongside links to facilitate testifying (e.g. online testimony).
+
+.SH COMMANDS
+.IP "path"
+Provides the installation path of hcli_hleg, which can be used to help locate the path of the HCLI app to use in an HCLI Connector.
+.IP help
+This help file.
+.SH OPTIONS
+.IP --version
+.B hcli_hleg
+version and the version of it's dependencies.
+.SH EXAMPLE
+hcli_hleg path
+
+hcli_hleg --version
+
+gunicorn --workers=1 --threads=1 --chdir `hcli_core path` "hcli_core:connector(\\"`hcli_hleg path`\\")"

@@ -1,0 +1,58 @@
+{
+    "hcliTemplateVersion": "1.0",
+    "executable": [
+        {
+            "command": "hleg ls",
+            "http": "get"
+        }
+    ],
+    "cli": [
+        {
+            "id": "hleg",
+            "name": "hleg",
+            "section": [
+                {
+                    "name": "name",
+                    "description": "hleg - an HCLI for interacting with State Legislature bill aggregation."
+                },
+                {
+                    "name": "synopsis",
+                    "description": "hleg <command>"
+                },
+                {
+                    "name": "description",
+                    "description": "HCLI hleg is a pypi wrapper that contains an HCLI sample application (hleg); hleg is a legislature bill aggregation service that helps facilitate rapid action by providing a useful list of bills on a timeline alongside links to facilitate testifying (e.g. online testimony)."
+                },
+                {
+                    "name": "examples",
+                    "description": "hleg ls"
+                }
+            ],
+            "command": [
+                {
+                    "href": "hlegls",
+                    "name": "ls",
+                    "description": "The \"ls\" command lists all queued bills ordered by time."
+                }
+            ]
+        },
+        {
+            "id": "hlegls",
+            "name": "ls",
+            "section": [
+                {
+                    "name": "name",
+                    "description": "ls - lists all queued bills ordered by time."
+                },
+                {
+                    "name": "synopsis",
+                    "description": "hleg ls"
+                },
+                {
+                    "name": "description",
+                    "description": "The service periodically refreshes state legislature information and allows for the aggregation to list its refreshed information."
+                }
+            ]
+        }
+    ]
+}
