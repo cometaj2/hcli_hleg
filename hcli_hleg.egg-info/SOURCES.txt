@@ -16,6 +16,7 @@ hcli_hleg.egg-info/requires.txt
 hcli_hleg.egg-info/top_level.txt
 hcli_hleg/cli/__init__.py
 hcli_hleg/cli/cli.py
+hcli_hleg/cli/data.py
 hcli_hleg/cli/logger.py
 hcli_hleg/cli/refresher.py
 hcli_hleg/cli/service.py
