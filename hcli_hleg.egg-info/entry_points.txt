@@ -1,2 +1,0 @@
-[console_scripts]
-hcli_hleg = hcli_hleg.__main__:main
