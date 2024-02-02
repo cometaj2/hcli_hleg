@@ -34,7 +34,7 @@ class Service:
         return
 
     def ls(self):
-        return None
+        return self.refresher.ls()
 
     # we schedule immediate single instance job executions.
     def schedule(self, function):
@@ -47,4 +47,7 @@ class Service:
                 if not self.refresher.is_running:
                     self.refresher.refresh()
 
-                time.sleep(10)
+                time.sleep(86400)
+
+# we kick off the background service immediately to avoid having to wait for the first request to come through.
+Service()

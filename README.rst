@@ -3,7 +3,7 @@
 HCLI hc
 =======
 
-HCLI hleg is a pypi wrapper that contains an HCLI sample application (hleg); hleg is a legislature bill aggregation service that helps facilitate rapid action by providing a useful list of bills on a timeline alongside links to facilitate testifying (e.g. online testimony).
+HCLI hleg is a pypi wrapper that contains an HCLI sample application (hleg); hleg is a legislature bill aggregation service that helps facilitate rapid action by providing a useful list of bill hearings on a timeline to facilitate testifying (e.g. online testimony).
 
 ----
 

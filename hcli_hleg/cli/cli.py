@@ -20,7 +20,6 @@ class CLI:
         if self.commands[1] == "ls":
             ls = json.dumps(self.service.ls(), indent=4) + "\n"
 
-            #return io.BytesIO(jobs.encode("utf-8"))
-            return None
+            return io.BytesIO(ls.encode("utf-8"))
 
         return None

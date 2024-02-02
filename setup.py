@@ -53,7 +53,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='hcli_hleg',
     version=package.__version__,
-    description='HCLI hleg is a pypi wrapper that contains an HCLI sample application (hleg); hleg is a legislature bill aggregation service that helps facilitate rapid action by providing a useful list of bills on a timeline alongside links to facilitate testifying (e.g. online testimony).',
+    description='HCLI hleg is a pypi wrapper that contains an HCLI sample application (hleg); hleg is a legislature bill aggregation service that helps facilitate rapid action by providing a useful list of bill hearings on a timeline to facilitate testifying (e.g. online testimony).',
     long_description_content_type="text/x-rst",
     long_description=long_description,
     url='https://github.com/cometaj2/hcli_hleg',
