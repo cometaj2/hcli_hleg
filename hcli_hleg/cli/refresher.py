@@ -44,7 +44,7 @@ class Refresher:
 
             self.terminate = False
 
-            self.hearings_file = self.pwd + "/hearings.output"
+            self.hearings_file = self.pwd + "/hearings.json"
             self.read_hearings(self.instance)
 
         return self.instance
