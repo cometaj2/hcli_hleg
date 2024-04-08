@@ -1,4 +1,4 @@
-|pypi|_ |build status|_ |pyver|_
+|pypi| |build status| |pyver|
 
 HCLI hc
 =======
@@ -31,7 +31,7 @@ You'll need an HCLI Connector to run hc. For example, you can use HCLI Core (htt
     pip install hcli-core
     pip install huckle
     pip install gunicorn
-    gunicorn --workers=1 --threads=1 -b 127.0.0.1:8000 --chdir `hcli_core path` "hcli_core:connector(\"`hcli_hleg path`\")"
+    gunicorn --workers=1 --threads=1 -b 127.0.0.1:8000 "hcli_core:connector(\"`hcli_hleg path`\")"
 
 Usage
 -----
@@ -70,8 +70,8 @@ Bugs
 ----
 
 .. |build status| image:: https://circleci.com/gh/cometaj2/hcli_hleg.svg?style=shield
-.. _build status: https://circleci.com/gh/cometaj2/hcli_hleg
+   :target: https://circleci.com/gh/cometaj2/hcli_hleg
 .. |pypi| image:: https://img.shields.io/pypi/v/hcli-hleg?label=hcli-hleg
-.. _pypi: https://pypi.org/project/hcli-hleg
+   :target: https://pypi.org/project/hcli-hleg
 .. |pyver| image:: https://img.shields.io/pypi/pyversions/hcli-hleg.svg
-.. _pyver: https://pypi.org/project/hcli-hleg
+   :target: https://pypi.org/project/hcli-hleg
