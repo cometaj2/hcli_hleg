@@ -29,4 +29,4 @@ def test_function():
     out, err = p2.communicate()
     result = out.decode('utf-8')
 
-    assert(result == '[]\n')
+    assert(result == '[]')
