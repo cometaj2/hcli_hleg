@@ -18,7 +18,7 @@ class CLI:
     def execute(self):
 
         if self.commands[1] == "ls":
-            ls = json.dumps(self.service.ls(), indent=4) + "\n"
+            ls = json.dumps(self.service.ls(), indent=4)
 
             return io.BytesIO(ls.encode("utf-8"))
 

@@ -17,9 +17,7 @@ logging.setLevel(logger.INFO)
 
 
 class Service:
-    controller = None
     scheduler = None
-    jogger = None
     refresher = None
     root = os.path.dirname(inspect.getfile(lambda: None))
 

@@ -81,8 +81,9 @@ class Refresher:
 
         try:
             self.hearings_workspace = []
+            self.no_hearings_workspace = []
 
-            glby = "https://wslwebservices.leg.wa.gov/LegislationService.asmx/GetLegislationByYear?year=2024"
+            glby = "https://wslwebservices.leg.wa.gov/LegislationService.asmx/GetLegislationByYear?year=2025"
             logging.info("Requesting legislations for the current year...")
             response = requests.get(glby, data=None, stream=True, verify=self.session.verify)
             raw_legislation_data = self.get_dictionary(response)
@@ -94,11 +95,12 @@ class Refresher:
                         active_legislation_set.add(legislation["BillNumber"])
 
             active_legislations = sorted(list(active_legislation_set))
+            print(active_legislations)
 
             logging.info("Requesting legislation and hearing information for each active legislation...")
             for legislation in active_legislations:
-                gl = "https://wslwebservices.leg.wa.gov/LegislationService.asmx/GetLegislation?biennium=2023-24&billNumber=" + legislation
-                gh = "https://wslwebservices.leg.wa.gov/LegislationService.asmx/GetHearings?biennium=2023-24&billNumber=" + legislation
+                gl = "https://wslwebservices.leg.wa.gov/LegislationService.asmx/GetLegislation?biennium=2025-26&billNumber=" + legislation
+                gh = "https://wslwebservices.leg.wa.gov/LegislationService.asmx/GetHearings?biennium=2025-26&billNumber=" + legislation
                 response = requests.get(gl, data=None, stream=True, verify=self.session.verify)
                 legislation_data = self.get_dictionary(response)
                 response = requests.get(gh, data=None, stream=True, verify=self.session.verify)
@@ -177,6 +179,20 @@ class Refresher:
                                                                         'hearing_type' : hearing_type,
                                                                         'hearing_type_description' : hearing_type_description
                                     })
+                        else:
+                            self.no_hearings_workspace.append({
+                                                                'bill_id': bill_id,
+                                                                'bill_number': bill_number,
+                                                                'agenda_id': None,
+                                                                'short_description' : short_description,
+                                                                'long_description' : long_description,
+                                                                'agency' : None,
+                                                                'committees' : None,
+                                                                'date' : None,
+                                                                'revised_date' : None,
+                                                                'hearing_type' : None,
+                                                                'hearing_type_description' : None
+                            })
                 else:
                     logging.error("Error retrieving some of the legislation or hearings data for legislation " + legislation)
 
@@ -189,7 +205,7 @@ class Refresher:
             filtered_hearings_workspace = [hearing for hearing in sorted_hearings_workspace if datetime.datetime.strptime(hearing['date'], '%Y-%m-%dT%H:%M:%S') >= today]
 
             with self.hearings_lock:
-                self.hearings = filtered_hearings_workspace
+                self.hearings = self.no_hearings_workspace + filtered_hearings_workspace
 
             #logging.info(json.dumps(self.hearings, indent=4))
             logging.info("Done gathering legislation and hearing information.")

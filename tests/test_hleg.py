@@ -8,7 +8,7 @@ def test_function():
     #!/bin/bash
     set -x
 
-    gunicorn --workers=1 --threads=1 --chdir `hcli_core path` "hcli_core:connector(\\"`hcli_hleg path`\\")" --daemon
+    gunicorn --workers=1 --threads=1 "hcli_core:connector(\\"`hcli_hleg path`\\")" --daemon
     huckle cli install http://127.0.0.1:8000
     """
 
@@ -24,7 +24,7 @@ def test_function():
     hleg ls
     kill $(ps aux | grep '[g]unicorn' | awk '{print $2}')
     """
-    
+
     p2 = subprocess.Popen(['bash', '-c', hello], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     out, err = p2.communicate()
     result = out.decode('utf-8')
